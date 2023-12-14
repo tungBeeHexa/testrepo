@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  capistrano:
+    build: ./capistrano/
+    env_file:
+      - .env
+    environment:
+      - APP_SERVER_KEY=id_rsa
+      - GITHUB_KEY=id_git_key
+    entrypoint: ["sh","/cap-entrypoint.sh"]
+    volumes:
+      - ${SERVER_RSA_PATH}:/root/.ssh/id_rsa
+      - ${SERVER_RSA_PATH}.pub:/root/.ssh/id_rsa.pub
+      - ${GITHUB_RSA_PATH}:/root/.ssh/id_git_key
+      - ${GITHUB_RSA_PATH}.pub:/root/.ssh/id_git_key.pub
+      - ./:/root/source
+    working_dir: /root/source/capistrano
