@@ -49,10 +49,10 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-set :application, 'saas-popup.variux.io'
-set :deploy_to, '/home/popup/saas-popup.variux.io'
+set :application, 'newfile.io'
+set :deploy_to, '/home/popup/newfile.io'
 set :tmp_dir, "/home/popup/tmp"
-set :branch, 'staging'
+set :branch, 'main'
 server 'prod-05.variux.com',
     user: 'popup',
     roles: %w{web app},
